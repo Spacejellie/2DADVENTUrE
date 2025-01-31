@@ -19,6 +19,20 @@ using UnityEngine;
        if (Input.GetKey(KeyCode.W))
        {
          player.transform.position += Vector3.up * speed;
+         GameObject.SetBool("walk" , true);
+       }
+       else 
+       {
+        GameObject.SetBool("walk" , false);
+       }
+       if (input.GetKey(KeyCode.W)) &&(Input.GetKey(Keycode.Z))
+       {
+        GameObject.SetBool("walk" , false);
+        GameObject.SetBool("run" , true);
+       }
+       else 
+       {
+        GameObject.SetBool("run" , false );
        }
        if (Input.GetKey(KeyCode.S))
        {
@@ -31,6 +45,10 @@ using UnityEngine;
        if (Input.GetKey(KeyCode.D))
        {
          player.transform.position += Vector3.right * speed;
+       }
+       if (Input.GetKey(KeyCode.Z))
+       {
+        player.transform.position += Vector3.forward * Time.deltaTime * speed;
        }
     }
 
