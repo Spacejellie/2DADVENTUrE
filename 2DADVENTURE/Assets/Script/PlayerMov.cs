@@ -2,10 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-   public class PlayerMov: MonoBehaviour
+public class PlayerMov : MonoBehaviour
 {
+
     public GameObject player;
     public float speed = 0.5f;
+
+    public List<string> myInventory;
+
+    public void addItem(string item)
+    {
+        myInventory.Add(item);
+    }
+    //This is a singleton. Makes the characters stick around indefinately
+    public static PlayerMov Instance;
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            DontDestroyOnLoad(gameObject);
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     // Update is called once per frame
     void Update()
@@ -22,20 +44,10 @@ using UnityEngine;
         {
             player.transform.position += Vector3.left * speed;
         }
-        if (!Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D))
         {
-          player.transform.position += Vector3.right * speed;
+            player.transform.position += Vector3.right * speed;
         }
-        
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.tag == "Key")
-        {
-          Destroy(collision.gameObject);
-        }
-        
     }
 
 }

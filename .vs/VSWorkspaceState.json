@@ -1,6 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\2DADVENTURE",
+    "\\2DADVENTURE\\Assets",
+    "\\2DADVENTURE\\Assets\\DicScript",
+    "\\2DADVENTURE\\Assets\\Script"
   ],
+  "SelectedNode": "\\2DADVENTURE\\Assets\\DicScript\\PlayerMovDic.cs",
   "PreviewInSolutionExplorer": false
 }
