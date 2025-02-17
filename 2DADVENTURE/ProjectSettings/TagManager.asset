@@ -12,6 +12,8 @@ TagManager:
   - push
   - Push
   - Intro
+  - End
+  - Scn1
   layers:
   - Default
   - TransparentFX

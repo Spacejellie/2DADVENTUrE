@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.Search;
 using UnityEngine;
 
 public class ItemNameDic : MonoBehaviour
@@ -16,7 +15,6 @@ public class ItemNameDic : MonoBehaviour
     public DialogueManager dialogueManager; // Reference to the dialogue system
     public GameObject pickUp; // UI indicator (e,g, "Press F to pick up")
 
-    
     // Start is called before the first frame update
     void Start()
     {

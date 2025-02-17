@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,14 +30,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.Space) && SceneManager.GetActiveScene().buildIndex == 0)
-        {
-            int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
-            if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
-            {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            }
-        }
+       
        
     }
 }

@@ -18,7 +18,7 @@ public class NPCPrompt : MonoBehaviour
     {
         if (isPlayerNear && Input.GetKeyDown(KeyCode.F))
         {
-            Debug.Log("Talking to NPC!");
+            Debug.Log("Talking");
         }
     }
 
