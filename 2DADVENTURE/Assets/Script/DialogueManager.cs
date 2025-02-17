@@ -28,7 +28,6 @@ public class DialogueManager : MonoBehaviour
     /// sets the initial text of the dialogueDisplay to the 
     /// first element in the array.
     {
-
         dialogueDisplay.text = dialogue[currentIndex];
     }
 

@@ -5,22 +5,27 @@ using UnityEngine;
 public class PressurePlate : MonoBehaviour
 {
     public GameObject Door;
+    public bool isPressed=false;
+
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Push") || other.CompareTag("Player"))
+        if (other.CompareTag("Push"))
         {
             Debug.Log("Plate Pressed. Door Opens.");
-            Door.SetActive(true);
+            isPressed = true;
+            Door.SetActive(false);
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Push") || other.CompareTag("Player"))
+        if (other.CompareTag("Push"))
         {
             Debug.Log("Plate Released. Door Closes.");
-            Door.SetActive(false);
+            isPressed = false;
+            Door.SetActive(true);
         }
     }
     void Start()
