@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class PlayerMovDic : MonoBehaviour
 {
     public GameObject player;
-    public float speed = 6f;
+    public float speed = 0.5f;
 
     public Dictionary<string, int> myInventoryDict = new Dictionary<string, int>();
     public TextMeshProUGUI inventoryDisplay;

@@ -34,7 +34,7 @@ public class ItemNameDic : MonoBehaviour
     {
  
         pickUp.SetActive(true); // Show pickup prompt
-        if (Input.GetKeyDown(KeyCode.E))// If player presses "E"
+        if (Input.GetKey(KeyCode.E))// If player presses "E"
         {
             Interact(); //Update dialogue manager
             AddItem(); // Add item to the inventory
