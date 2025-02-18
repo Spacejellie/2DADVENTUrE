@@ -14,6 +14,7 @@ public class ItemNameDic : MonoBehaviour
     public PlayerMovDic myPlayer; //Reference to the player script
     public DialogueManager dialogueManager; // Reference to the dialogue system
     public GameObject pickUp; // UI indicator (e,g, "Press F to pick up")
+    private bool isPlayerNear = false;
 
     // Start is called before the first frame update
     void Start()
@@ -27,19 +28,32 @@ public class ItemNameDic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    private void OnTriggerStay2D(Collider2D other) //Detect player in range
-    {
- 
-        pickUp.SetActive(true); // Show pickup prompt
-        if (Input.GetKey(KeyCode.E))// If player presses "E"
+        if (isPlayerNear && Input.GetKey(KeyCode.E))// If player presses "E"
         {
             Interact(); //Update dialogue manager
             AddItem(); // Add item to the inventory
             pickUp.SetActive(false); //Hide pickup prompt
             Destroy(gameObject); // Remove item from the world
+            isPlayerNear = true;
+            Debug.Log(" Up Key");
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) //Detect player in range
+    {
+        if (other.CompareTag("Player"))
+        {
+            isPlayerNear =true;
+            pickUp.SetActive(true);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            isPlayerNear =false;
+            pickUp.SetActive(false);
         }
     }
 

@@ -16,7 +16,7 @@ public class ITEMPrompt : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isPlayerNear && Input.GetKeyDown(KeyCode.F))
+        if (isPlayerNear && Input.GetKey(KeyCode.F))
         {
             Debug.Log("Looking at Item");
         }

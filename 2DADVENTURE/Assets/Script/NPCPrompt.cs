@@ -16,10 +16,11 @@ public class NPCPrompt : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isPlayerNear && Input.GetKeyDown(KeyCode.F))
+        if (!isPlayerNear || !Input.GetKey(KeyCode.F))
         {
-            Debug.Log("Talking");
+            return;
         }
+        Debug.Log("Is Talking");
     }
 
     private void OnTriggerEnter2D(Collider2D other)

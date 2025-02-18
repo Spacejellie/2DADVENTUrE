@@ -30,7 +30,10 @@ public class PressurePlate : MonoBehaviour
     }
     void Start()
     {
-        
+        if (Door != null)
+        {
+            Debug.LogError("Door is not assigned to Plate");
+        }
     }
 
     // Update is called once per frame

@@ -20,6 +20,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public Vector3 playerSpawnPosition;
+
+    public void SetPlayerSpawnPosition(Vector3 position)
+    {
+        playerSpawnPosition = position;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
