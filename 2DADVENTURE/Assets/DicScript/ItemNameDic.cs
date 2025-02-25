@@ -35,7 +35,7 @@ public class ItemNameDic : MonoBehaviour
             pickUp.SetActive(false); //Hide pickup prompt
             Destroy(gameObject); // Remove item from the world
             isPlayerNear = true;
-            Debug.Log(" Up Key");
+            Debug.Log(" Pick Up Key");
         }
     }
 

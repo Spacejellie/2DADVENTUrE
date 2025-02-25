@@ -7,9 +7,10 @@ using UnityEngine.UI;
 public class PlayerMovDic : MonoBehaviour
 {
     public GameObject player;
-    public float speed = 2.5f;
+    public float speed = 0.2f;
     public Dictionary<string, int> myInventoryDict = new Dictionary<string, int>();
     public TextMeshProUGUI inventoryDisplay;
+    public VectorValue startingPosition;
 
     public static PlayerMovDic Instance;
     private void Awake()
@@ -22,19 +23,19 @@ public class PlayerMovDic : MonoBehaviour
         else
         {
             Destroy(gameObject);
-            return;
+   
         }
     }
     // Start is called before the first frame update
     void Start()
     {
         DisplayInventory();
+        transform.position = startingPosition.initialValue;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 move = Vector3.zero;
 
         if (Input.GetKey(KeyCode.W))
         {
@@ -53,7 +54,6 @@ public class PlayerMovDic : MonoBehaviour
             player.transform.position += Vector3.right * speed;
         }
 
-        transform.position += move * speed * Time.deltaTime;
     }
 
     public void DisplayInventory()
@@ -67,7 +67,7 @@ public class PlayerMovDic : MonoBehaviour
         inventoryDisplay.text = "Inventory:\n";
         foreach(var item in myInventoryDict)
         {
-            inventoryDisplay.text += $"Item: {item.Key}, Quantity: {item.Value}e\n";
+            inventoryDisplay.text += $"Item: {item.Key}, Quantity: {item.Value}\n";
         }
     }
 }

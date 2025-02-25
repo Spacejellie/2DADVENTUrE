@@ -5,39 +5,36 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance;
 
+    public static GameManager Instance;
+    // Start is called before the first frame update
     private void Awake()
     {
         if (Instance == null)
         {
-            DontDestroyOnLoad(gameObject);
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
+
         else
         {
             Destroy(gameObject);
         }
     }
 
-    public Vector3 playerSpawnPosition;
-
-    public void SetPlayerSpawnPosition(Vector3 position)
+    public void ChangeScene(string sceneName)
     {
-        playerSpawnPosition = position;
+        SceneManager.LoadScene(sceneName);
     }
 
-    // Start is called before the first frame update
     void Start()
     {
-       
+
     }
 
     // Update is called once per frame
     void Update()
     {
-
-       
        
     }
 }
