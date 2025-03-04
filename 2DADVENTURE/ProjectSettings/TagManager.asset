@@ -15,6 +15,7 @@ TagManager:
   - End
   - Scn1
   - isPressed
+  - INV
   layers:
   - Default
   - TransparentFX

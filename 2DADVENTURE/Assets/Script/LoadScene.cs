@@ -6,14 +6,18 @@ using UnityEngine.SceneManagement;
 public class LoadScene : MonoBehaviour
 {
     public string sceneToLoad;
-    public Vector2 playerPosition;
-    public VectorValue playerMemory;
+    public PlayerMovDic myPlayer;
+
+    void Start()
+    {
+        myPlayer = FindObjectOfType<PlayerMovDic>(); //Find and assign the PlayerMoveDic script
+    }
 
     public void OnTriggerEnter2D(Collider2D other)
     {
         if(other.CompareTag("Player") && !other.isTrigger)
         {
-            playerMemory.initialValue = playerPosition;
+            myPlayer.newScene = true;
             SceneManager.LoadScene(sceneToLoad);
         }
     }

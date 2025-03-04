@@ -10,7 +10,7 @@ public class PlayerMovDic : MonoBehaviour
     public float speed = 0.2f;
     public Dictionary<string, int> myInventoryDict = new Dictionary<string, int>();
     public TextMeshProUGUI inventoryDisplay;
-    public VectorValue startingPosition;
+    public bool newScene = false;
 
     public static PlayerMovDic Instance;
     private void Awake()
@@ -29,13 +29,23 @@ public class PlayerMovDic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        inventoryDisplay = GameObject.FindGameObjectWithTag("INV").GetComponent<TextMeshProUGUI>();
         DisplayInventory();
-        transform.position = startingPosition.initialValue;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        inventoryDisplay = GameObject.FindGameObjectWithTag("INV").GetComponent<TextMeshProUGUI>();
+        //Find the game object with the correct tag
+
+        if(newScene == true)
+        {
+            DisplayInventory();
+            newScene = false;
+        }
+        
 
         if (Input.GetKey(KeyCode.W))
         {
