@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovDic : MonoBehaviour
 {
@@ -36,17 +37,6 @@ public class PlayerMovDic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        inventoryDisplay = GameObject.FindGameObjectWithTag("INV").GetComponent<TextMeshProUGUI>();
-        //Find the game object with the correct tag
-
-        if(newScene == true)
-        {
-            DisplayInventory();
-            newScene = false;
-        }
-        
-
         if (Input.GetKey(KeyCode.W))
         {
             player.transform.position += Vector3.up * speed;
